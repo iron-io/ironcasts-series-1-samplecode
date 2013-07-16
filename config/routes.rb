@@ -1,7 +1,6 @@
 IronWorker101::Application.routes.draw do
-  get "snippets/show"
-  get "snippets/new"
-  get "snippets/create"
+  resources :snippets
+  root to: "snippets#new"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -42,7 +41,7 @@ IronWorker101::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'

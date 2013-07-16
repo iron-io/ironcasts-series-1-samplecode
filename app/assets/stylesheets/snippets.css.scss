@@ -1,3 +1,9 @@
-// Place all the styles related to the snippets controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.code_block {
+  background-color: #F3F3F3;
+  border: solid 1px #CCC;
+}
+
+.code_block pre {
+  margin: 10px 10px;
+  font-family: 'Menlo', 'Courier New', 'Terminal', monospace;
+}
