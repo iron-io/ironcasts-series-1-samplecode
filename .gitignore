@@ -14,3 +14,10 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# ignoring development database credentials
+/config/database.yml
+
+
+# ignoring environment variables
+.env
