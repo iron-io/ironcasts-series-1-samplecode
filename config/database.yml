@@ -19,8 +19,6 @@ development:
   encoding: unicode
   database: iron-worker-101_development
   pool: 5
-  username: iron-worker-101
-  password:
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -48,13 +46,9 @@ test:
   encoding: unicode
   database: iron-worker-101_test
   pool: 5
-  username: iron-worker-101
-  password:
 
 production:
   adapter: postgresql
   encoding: unicode
   database: iron-worker-101_production
   pool: 5
-  username: iron-worker-101
-  password:
