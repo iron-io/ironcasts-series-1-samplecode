@@ -21,3 +21,7 @@
 
 # ignoring environment variables
 .env
+
+
+# ignoring iron workers credentials
+/workers/iron.json
