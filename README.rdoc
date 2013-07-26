@@ -12,3 +12,8 @@
 
  heroku pg:credentials [YOUR_HEROKU_DEV_DATABASE_COLOR]
  => dbname=xxxxxxxx host=xxxxxxx.compute-1.amazonaws.com port=5432 user=xxxxxxxx password=xxxxxxxxxx-X9_ sslmode=require
+
+
+===
+Do not assign into params anywhere.
+```http://stackoverflow.com/questions/17634684/modifying-predefined-params-var-in-sinatra-renders-it-nil```
