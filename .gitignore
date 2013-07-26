@@ -25,3 +25,6 @@
 
 # ignoring iron workers credentials
 /workers/iron.json
+
+# ignoring the doc directory
+/doc/
