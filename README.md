@@ -49,9 +49,7 @@ In this example application, we will use iron worker to implement a syntax highl
 
 In this example, the upon creating a snippet, the controller will make an api request to get syntax highlighting. And then the highlighted code will be saved into the database.
 
-#### Step 1
-We will first develop a worker script that is fully functional locally.
-
+#### Develop a worker script that is fully functional locally.
 
 workers/pygments/Pygments_worker.rb
 ```ruby
@@ -100,7 +98,7 @@ As you can see, Pygments_worker.rb is where the main logic lies, it connects to 
 
 We suggest that you create a development folder within the folder where your worker is located and place a dev file in there. We will explain what each line does:
 
-1. Changing the path
+##### Step 1. Changing the path
 
 ```ruby
 $LOAD_PATH.unshift(File.expand_path('../../../../app/', __FILE__))
@@ -108,6 +106,8 @@ $LOAD_PATH.unshift(File.expand_path('../../../../app/', __FILE__))
 This line changes the load path of ruby so that you can simply call 
 ```ruby require "models/snippet" ```, instead of having to call ```ruby require_relative "../../../app/models/snippet" ```
 This micmicks the folder structure of the worker. (Please see this on the directory structure of a worker)
+
+##### Step 2. Mock out params (payload) that the workers will receive in production
 
 ```ruby
 def database_config
@@ -137,7 +137,7 @@ These lines mock how the worker will receive its payload. The worker will receiv
                            "snippet_id" => @snippet.id)
 ```
 
-#### Setting up your Heroku Dev Database
+#### Step 3, Setting up your Heroku Dev Database
 
 To Add heroku production database and dev database; Make sure you remember which one is for development
 
@@ -172,28 +172,17 @@ development:
   sslmode: require
 ```
 
-Note: 
-Params should be defined as a method rather than set as a local variable
+This line of code: ```ruby  ActiveRecord::Base.establish_connection(params['database']) ```, takes the hash as parameters and estasblished connections with the database.
+
+#### Deployment
+
+Go to <a href="http://hud.iron.io">HUD</a> to down your iron.json credentials. 
+
+Use CLI
 ```
-http://stackoverflow.com/questions/17634684/modifying-predefined-params-var-in-sinatra-renders-it-nil
+$ iron_worker upload pygments
 ```
+Make sure that you in the directory that contains the iron.json file and make sure that you are uploading the name of the .worker file.
+The .worker file
 
-
-
-
-before:demo app
-show controller code
-
-code snippets:
-
-pygments_worker.rb
-1. make sure that it works locally - build mock file to just does a input output
-2. and then set up database, and make sure you can write into the database
-how to get dev database set up on heroku
-1. heroku credentials
-2. get database url or database yml
-3. deploy and show that it works online too 
-
-
-build worker file include into snippet
-
+In this post, we will explain the directory structure after you upload iron_worker and how to write a rake task for deployment
