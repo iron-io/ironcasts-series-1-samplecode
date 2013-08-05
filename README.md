@@ -16,4 +16,6 @@
 
 ===
 Do not assign into params anywhere.
-```http://stackoverflow.com/questions/17634684/modifying-predefined-params-var-in-sinatra-renders-it-nil```
+```
+http://stackoverflow.com/questions/17634684/modifying-predefined-params-var-in-sinatra-renders-it-nil
+```
