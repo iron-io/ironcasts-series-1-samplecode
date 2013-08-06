@@ -15,16 +15,5 @@
 /log/*.log
 /tmp
 
-# ignoring development database credentials
-/config/database.yml
-
-
-# ignoring environment variables
-.env
-
-
-# ignoring iron workers credentials
-/workers/iron.json
-
 # ignoring the doc directory
 /doc/
