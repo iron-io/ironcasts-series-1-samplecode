@@ -103,8 +103,10 @@ We suggest that you create a development folder within the folder where your wor
 ```ruby
 $LOAD_PATH.unshift(File.expand_path('../../../../app/', __FILE__))
 ```
+
 This line changes the load path of ruby so that you can simply call
-```ruby require "models/snippet" ```, instead of having to call ```ruby require_relative "../../../app/models/snippet" ```
+``` require "models/snippet" ```, instead of having to call ``` require_relative "../../../app/models/snippet" ```
+
 This micmicks the folder structure of the worker. (Please see this on the directory structure of a worker)
 
 ##### Step 2. Mock out params (payload) that the workers will receive in production
@@ -172,7 +174,7 @@ development:
   sslmode: require
 ```
 
-This line of code: ```ruby  ActiveRecord::Base.establish_connection(params['database']) ```, takes the hash as parameters and estasblished connections with the database.
+This line of code: ```  ActiveRecord::Base.establish_connection(params['database']) ```, takes the hash as parameters and estasblished connections with the database.
 
 #### Deployment
 
