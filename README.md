@@ -103,7 +103,7 @@ We suggest that you create a development folder within the folder where your wor
 ```ruby
 $LOAD_PATH.unshift(File.expand_path('../../../../app/', __FILE__))
 ```
-This line changes the load path of ruby so that you can simply call 
+This line changes the load path of ruby so that you can simply call
 ```ruby require "models/snippet" ```, instead of having to call ```ruby require_relative "../../../app/models/snippet" ```
 This micmicks the folder structure of the worker. (Please see this on the directory structure of a worker)
 
@@ -176,13 +176,18 @@ This line of code: ```ruby  ActiveRecord::Base.establish_connection(params['data
 
 #### Deployment
 
-Go to <a href="http://hud.iron.io">HUD</a> to down your iron.json credentials. 
+Go to <a href="http://hud.iron.io">HUD</a> to down your iron.json credentials.
 
 Use CLI
 ```
+$ cd workers
 $ iron_worker upload pygments
 ```
-Make sure that you in the directory that contains the iron.json file and make sure that you are uploading the name of the .worker file.
-The .worker file
+
+#### Lets analyse this line by line
+
+``` $ cd workers ``` make sure that you in the directory that contains the iron.json file, as the CLI tool looks for iron.json for credentials
+
+``` $ iron_worker upload pygments ``` it looks for a pygments.worker file in your current directory
 
 In this post, we will explain the directory structure after you upload iron_worker and how to write a rake task for deployment
