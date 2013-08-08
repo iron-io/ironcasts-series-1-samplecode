@@ -1,5 +1,3 @@
-require 'net/http'
-require 'iron_manager'
 class SnippetsController < ApplicationController
   def show
     @snippet = Snippet.find(params[:id])
