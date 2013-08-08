@@ -1,4 +1,3 @@
-require_relative './development/pygments_worker_dev' unless ARGV.include?('-id')
 require 'uri'
 require 'net/http'
 require 'pg'
@@ -17,6 +16,11 @@ setup_database
 
 uri = URI.parse("http://pygments.appspot.com/")
 request = Net::HTTP.post_form(uri, lang: params["request"]["lang"], code: params["request"]["code"])
+
+p request.code
+p request.body
+
 snippet = Snippet.where(:id => params["snippet_id"]).first
 snippet.update_attribute(:highlighted_code, request.body)
+
 p snippet

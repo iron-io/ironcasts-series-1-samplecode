@@ -1,4 +1,5 @@
 require 'yaml'
+require 'debugger'
 $LOAD_PATH.unshift(File.expand_path('../../../app/', __FILE__))
 
 def database_config
@@ -12,3 +13,5 @@ def params
     "snippet_id" => 1
   }
 end
+
+load File.expand_path('../../pygments_worker.rb', __FILE__)
