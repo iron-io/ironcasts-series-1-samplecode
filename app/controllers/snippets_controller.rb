@@ -10,7 +10,7 @@ class SnippetsController < ApplicationController
   end
 
   def create
-    @client ||= IronWorkerNG::Client.new(:token => ENV["IRON_TOKEN"], :project_id => ENV["IRON_PROJECT_ID"])
+    @client ||= IronWorkerNG::Client.new(:token => ENV["TOKEN"], :project_id => ENV["PROJECT_ID"])
     @snippet = Snippet.new(snippet_params)
     if @snippet.save
       @client.tasks.create("pygments",
