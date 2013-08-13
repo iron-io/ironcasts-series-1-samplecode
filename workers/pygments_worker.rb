@@ -1,3 +1,4 @@
+require_relative "./development/pygments_worker_dev.rb" unless ARGV.include?("-id")
 require 'uri'
 require 'net/http'
 require 'pg'

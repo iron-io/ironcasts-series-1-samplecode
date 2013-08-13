@@ -14,4 +14,4 @@ def params
   }
 end
 
-load File.expand_path('../../pygments_worker.rb', __FILE__)
+# load File.expand_path('../../pygments_worker.rb', __FILE__)
