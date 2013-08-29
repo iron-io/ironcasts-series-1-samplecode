@@ -1,4 +1,3 @@
-require 'net/http'
 class SnippetsController < ApplicationController
   def show
     @snippet = Snippet.find(params[:id])
