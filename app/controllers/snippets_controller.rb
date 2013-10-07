@@ -10,7 +10,7 @@ class SnippetsController < ApplicationController
   def create
     @snippet = Snippet.new(snippet_params)
     if @snippet.save
-      @client ||= IronWorkerNG::Client.new(:token => ENV["TOKEN"], :project_id => ENV["PROJECT_ID"])
+      @client ||= IronWorkerNG::Client.new(:token => ENV["IRON_TOKEN"], :project_id => ENV["IRON_PROJECT_ID"])
       @client.tasks.create("pygments",
                            "database" => Rails.configuration.database_configuration[Rails.env],
                            "request" => {"lang" => @snippet.language,
