@@ -17,3 +17,5 @@
 
 # ignoring the doc directory
 /doc/
+
+.DS_Store
